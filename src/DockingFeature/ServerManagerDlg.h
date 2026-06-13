@@ -24,7 +24,7 @@ protected:
 private:
     void refreshProfileList();
     void loadProfileData(const std::string& id);
-    void saveCurrentProfile();
+    bool saveCurrentProfile();
     void clearForm();
     
     std::string currentProfileId;

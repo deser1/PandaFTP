@@ -50,16 +50,46 @@ INT_PTR CALLBACK ServerManagerDlg::run_dlgProc(UINT message, WPARAM wParam, LPAR
             }
             else if (wmId == IDC_BTN_NEW_PROFILE) {
                 clearForm();
-                currentProfileId = "";
+                currentProfileId = ""; // Wyczyść ID by traktować to jako nowy profil
+                // Odznacz wszystko na liście, aby było widać, że to nowy profil
+                HWND hList = ::GetDlgItem(_hSelf, IDC_LIST_PROFILES);
+                ::SendMessage(hList, LB_SETCURSEL, (WPARAM)-1, 0);
+            }
+            else if (wmId == IDC_BTN_DEL_PROFILE) {
+                if (!currentProfileId.empty()) {
+                    ConfigManager::getInstance().removeProfile(currentProfileId);
+                    
+                    // Zapisz po usunięciu
+                    wchar_t configDir[MAX_PATH];
+                    ::SendMessage(nppData._nppHandle, NPPM_GETPLUGINSCONFIGDIR, MAX_PATH, (LPARAM)configDir);
+                    std::wstring configPath = std::wstring(configDir) + L"\\PandaFTP.json";
+                    ConfigManager::getInstance().saveConfig(configPath);
+                    
+                    currentProfileId = "";
+                    clearForm();
+                    refreshProfileList();
+                }
             }
             else if (wmId == IDC_BTN_SAVE) {
-                saveCurrentProfile();
-                refreshProfileList();
+                if (saveCurrentProfile()) {
+                    refreshProfileList();
+                    // Zaznacz nowo zapisany profil na liście
+                    HWND hList = ::GetDlgItem(_hSelf, IDC_LIST_PROFILES);
+                    int count = (int)::SendMessage(hList, LB_GETCOUNT, 0, 0);
+                    auto& profiles = ConfigManager::getInstance().getProfiles();
+                    for (int i = 0; i < count; ++i) {
+                        if (i < (int)profiles.size() && profiles[i].id == currentProfileId) {
+                            ::SendMessage(hList, LB_SETCURSEL, i, 0);
+                            break;
+                        }
+                    }
+                }
             }
             else if (wmId == IDC_BTN_CONNECT) {
-                saveCurrentProfile();
-                ftpDockDlg.connectToServer(currentProfileId);
-                display(false); // Close manager
+                if (saveCurrentProfile()) {
+                    ftpDockDlg.connectToServer(currentProfileId);
+                    display(false); // Close manager
+                }
                 return TRUE;
             }
             else if (wmId == IDC_LIST_PROFILES && wmEvent == LBN_SELCHANGE) {
@@ -112,16 +142,23 @@ void ServerManagerDlg::loadProfileData(const std::string& id) {
     }
 }
 
-void ServerManagerDlg::saveCurrentProfile() {
+bool ServerManagerDlg::saveCurrentProfile() {
     wchar_t buf[256];
     ServerProfile p;
+    
+    // Upewnijmy się, że nazwa profilu nie jest pusta, żeby nie nadpisywać śmieciami
+    ::GetDlgItemTextW(_hSelf, IDC_EDIT_PROFILENAME, buf, 256);
+    if (wcslen(buf) == 0) {
+        MessageBoxW(_hSelf, L"Nazwa profilu nie może być pusta!", L"Błąd", MB_OK | MB_ICONERROR);
+        return false;
+    }
+    p.name = ws2s(buf);
     
     if (currentProfileId.empty()) {
         currentProfileId = std::to_string(GetTickCount64()); // Simple unique ID
     }
     p.id = currentProfileId;
     
-    ::GetDlgItemTextW(_hSelf, IDC_EDIT_PROFILENAME, buf, 256); p.name = ws2s(buf);
     ::GetDlgItemTextW(_hSelf, IDC_EDIT_HOST, buf, 256); p.host = ws2s(buf);
     p.port = ::GetDlgItemInt(_hSelf, IDC_EDIT_PORT, NULL, FALSE);
     
@@ -140,6 +177,8 @@ void ServerManagerDlg::saveCurrentProfile() {
     ::SendMessage(nppData._nppHandle, NPPM_GETPLUGINSCONFIGDIR, MAX_PATH, (LPARAM)configDir);
     std::wstring configPath = std::wstring(configDir) + L"\\PandaFTP.json";
     ConfigManager::getInstance().saveConfig(configPath);
+    
+    return true;
 }
 
 void ServerManagerDlg::clearForm() {
