@@ -12,6 +12,7 @@
 *.db
 
 # Build artifacts
+readme.FIRST
 bin/
 bin64/
 obj/
