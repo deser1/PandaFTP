@@ -1,0 +1,1386 @@
+commit 454390edaf6c954a101aa77961a939dd9e338ad2
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-05-31
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-05-31
+
+    Bump package and library versions
+
+commit ff37552de18ff0f7d39482df1ed2105dac8746d7
+Merge: 097c37da 64773a52
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2026-05-30
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-05-30
+
+    Merge pull request #2201 from ngtcp2/static-const
+    
+    Consider static const if possible
+
+commit 64773a527782101609512602cfbf53bd01a0e0a9
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-05-30
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-05-30
+
+    Consider static const if possible
+
+commit 097c37da0456382623678b4931b2bb0ecfd379fe
+Merge: 5856037e b0a04831
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2026-05-29
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-05-29
+
+    Merge pull request #2200 from ngtcp2/bump-libressl
+    
+    Bump libressl to v4.3.2
+
+commit b0a04831cc9d34018bed06b5e01c230def1f2492
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-05-29
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-05-29
+
+    Bump libressl to v4.3.2
+
+commit 5856037eca3eace12bee393507450e72daf0a946
+Merge: e4b16814 1a5cc993
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2026-05-29
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-05-29
+
+    Merge pull request #2199 from ngtcp2/bump-picotls
+    
+    Bump picotls
+
+commit 1a5cc993cca49f7d914211d7ffdb0687e1c916a5
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-05-29
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-05-29
+
+    Bump picotls
+
+commit e4b168148f8619a5418554df41393a437ceabc91
+Merge: 219df842 b98e0c4d
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2026-05-29
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-05-29
+
+    Merge pull request #2198 from ngtcp2/bump-boringssl
+    
+    Bump boringssl
+
+commit b98e0c4df2ed7cd48f1669c06e6ec1af33a65ce6
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-05-29
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-05-29
+
+    Bump boringssl
+
+commit 219df8423798ceee98ae9e4712d785a1073608cf
+Merge: 3be63b2b c5f64cdf
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2026-05-27
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-05-27
+
+    Merge pull request #2196 from ngtcp2/net-cleanup
+    
+    Net cleanup
+
+commit c5f64cdf40dfaa69db49e307ef8c62b44fbc73be
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-05-27
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-05-27
+
+    net: Use function like macro style
+
+commit 3f396144269a39a8b7550554bcea7ed369da8d5c
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-05-27
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-05-27
+
+    net: Use macros for win32 hton*/ntoh* fallbacks
+
+commit 3be63b2b2bafca65ef2de00caa125be5abb1203f
+Merge: a10e875b 8120c3ce
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2026-05-22
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-05-22
+
+    Merge pull request #2195 from ngtcp2/fix-get-varint-strict-aliasing-issue
+    
+    Fix strict aliasing issue in ngtcp2_get_varint
+
+commit 8120c3cedad99caaf98785b6de70723c06a164ef
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-05-22
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-05-22
+
+    Fix strict aliasing issue in ngtcp2_get_varint
+
+commit a10e875ba59e576cef4a423c408dd6971b14163f
+Merge: 1729a263 efdd46bc
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2026-05-22
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-05-22
+
+    Merge pull request #2194 from ngtcp2/more-unsigned-hex-constants
+    
+    More unsigned hex integer literals
+
+commit efdd46bc2e189085b0e12c860eccd9113a960a86
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-05-22
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-05-22
+
+    More unsigned hex integer literals
+
+commit 1729a263a9652c02c33e5f3b89738b71f1d76994
+Merge: 02ac3906 b2745ac7
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2026-05-20
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-05-20
+
+    Merge pull request #2193 from ngtcp2/ensure-stream-initial-close
+    
+    lib: Ensure that unidirectional stream shutdown flags properly set
+
+commit b2745ac76d56f22549ac35d6dd87ac9fba236237
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-05-20
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-05-20
+
+    lib: Ensure that unidirectional stream shutdown flags properly set
+    
+    This change fixes the bug that a remote unidirectional stream is not
+    half-closed local when RESET_STREAM frame is received before any
+    stream data is received.
+
+commit 02ac3906fc64065d946c42eee8dbb7ac9dfded9d
+Merge: 8c172af4 90acd5e7
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2026-05-20
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-05-20
+
+    Merge pull request #2192 from ngtcp2/unsigned-hex-constants
+    
+    Make all private hex constants unsigned
+
+commit 90acd5e793de1e5920e6298a8e3ab6978bdaee5d
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-05-20
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-05-20
+
+    Make all private hex constants unsigned
+
+commit 8c172af4ea9dfaa5fcc3680b22815b8743fc3d44
+Merge: 4b7c858c 40218f1d
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2026-05-20
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-05-20
+
+    Merge pull request #2191 from ngtcp2/robust-bitwise-operations
+    
+    Make bitwise operations robust
+
+commit 40218f1dc0314877d522bbdc8505e060399062ea
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-05-20
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-05-20
+
+    Make bitwise operations robust
+
+commit 4b7c858ce80153a65a054bec676ebe4f9d36237b
+Merge: 733c6439 840436d2
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2026-05-20
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-05-20
+
+    Merge pull request #2189 from ngtcp2/cubic-reset-cwnd-limited
+    
+    cubic: Add missing is_cwnd_limited reset after exiting slow start
+
+commit 840436d28bfaa2572ee2a36d600826a1033054b6
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-05-19
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-05-20
+
+    cubic: Add missing is_cwnd_limited reset after exiting slow start
+
+commit 733c643950d008cb8243fd429400136e7e8f35fc
+Merge: eaff1668 36fc58d4
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2026-05-19
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-05-19
+
+    Merge pull request #2188 from ngtcp2/ppe-dgram-padding-min-pkt
+    
+    ppe: Ensure packet protection sample with ngtcp2_ppe_dgram_padding_size
+
+commit 36fc58d489282abd21214e67b2757c8e0305339c
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-05-19
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-05-19
+
+    ppe: Ensure packet protection sample with ngtcp2_ppe_dgram_padding_size
+
+commit eaff16685de6a82aa7269d167a75d6f75ef516fe
+Merge: df29e4b3 861d6136
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2026-05-19
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-05-19
+
+    Merge pull request #2187 from ngtcp2/robust-ppe-padding-size
+    
+    ppe: Robust ngtcp2_ppe_padding_size
+
+commit 861d6136cdc14fb0769ed6b91c63e8181bca554b
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-05-19
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-05-19
+
+    ppe: Robust ngtcp2_ppe_padding_size
+    
+    Robust ngtcp2_ppe_padding_size without any assumption of AEAD
+    overhead.  Also make sure that we have enough space to make a minimum
+    packet that can offer header protection sample in
+    ngtcp2_ppe_encode_hd.
+
+commit df29e4b3ee1a72c1f7ae6d3c84c428b534a56f9f
+Merge: 9bbd925a 8fa0b964
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2026-05-18
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-05-18
+
+    Merge pull request #2185 from ngtcp2/sphinx-version-add-and-deprecated
+    
+    Adopt sphinx version-add and version-deprecated directives
+
+commit 8fa0b964ca5062d2199af204208c86898b3ba5a9
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-05-18
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-05-18
+
+    Adopt sphinx version-add and version-deprecated directives
+
+commit 9bbd925a5c6f2ad60b43e97f9b00fec12307b9b9
+Merge: d868ed17 59dc983d
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2026-05-17
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-05-17
+
+    Merge pull request #2182 from ngtcp2/bound-crypto-offset
+    
+    lib: Apply absolute upper bound against CRYPTO data offset
+
+commit 59dc983d7936a84f77efa18f15d4a527538017c0
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-05-17
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-05-17
+
+    lib: Apply absolute upper bound against CRYPTO data offset
+
+commit d868ed173389c6a77dda4183eec589c9f7514890
+Merge: 585e7cf3 a9675977
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2026-05-15
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-05-15
+
+    Merge pull request #2181 from ngtcp2/bump-wolfssl-interop
+    
+    Bump wolfssl to v5.9.1-stable in interop Dockerfile
+
+commit a9675977f59a4f79c9235c5cffcdb11644114cfa
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-05-15
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-05-15
+
+    Bump wolfssl to v5.9.1-stable in interop Dockerfile
+
+commit 585e7cf3b9904250168d99e0f812aa44beaa3471
+Merge: 5cf78d29 3919277e
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2026-05-15
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-05-15
+
+    Merge pull request #2180 from ngtcp2/bump-aws-lc
+    
+    Bump aws-lc to v1.73.0
+
+commit 3919277eb1d42d8fcdda31c6ff0ec1e04cee5051
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-05-15
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-05-15
+
+    Bump aws-lc to v1.73.0
+
+commit 5cf78d29caf17853a084b833b6e42cefc8e346d8
+Merge: cb58fb34 52d0f80a
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2026-05-14
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-05-14
+
+    Merge pull request #2179 from ngtcp2/examples-sim-minor-improvements
+    
+    examples/sim: Minor improvements
+
+commit 52d0f80ad7297440201a094d918c0ed9fe6f03ba
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-05-14
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-05-14
+
+    examples/sim: Minor improvements
+
+commit cb58fb3481a26bbc576708ee28aed1c7fa4887b0
+Merge: d8914487 94c23d89
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2026-05-14
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-05-14
+
+    Merge pull request #2178 from ngtcp2/examples-sim-fix-retry-on-initial-pkt-loss
+    
+    examples/sim: Deal with retry due to Initial packet loss
+
+commit 94c23d898d98b3979705b2aadbb1887d936dbe3f
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-05-14
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-05-14
+
+    examples/sim: Deal with retry due to Initial packet loss
+
+commit d8914487f6826b69dc201ccceb4465109a9cb688
+Merge: 55313572 c7af852e
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2026-05-13
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-05-13
+
+    Merge pull request #2176 from ngtcp2/bump-wolfssl
+    
+    Bump wolfssl to v5.9.1-stable
+
+commit c7af852ed962f9d60720765fab0c4b6d5461e40b
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-05-13
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-05-13
+
+    Bump wolfssl to v5.9.1-stable
+
+commit 55313572a1efde28ef8ebb424d1a813384357a9c
+Merge: 7f98d6f7 ed6fb40f
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2026-05-13
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-05-13
+
+    Merge pull request #2175 from ngtcp2/bump-picotls
+    
+    Bump picotls
+
+commit ed6fb40fa1b3e13060ed247013b813d514f1e417
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-05-13
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-05-13
+
+    Bump picotls
+
+commit 7f98d6f7b93fbbe05eee89a1cf715ef450fc30ca
+Merge: 5f1a007f eeeed0d7
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2026-05-13
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-05-13
+
+    Merge pull request #2174 from ngtcp2/bump-boringssl
+    
+    Bump boringssl
+
+commit eeeed0d756d6817aec63b09e0ef7845ddacbc412
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-05-13
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-05-13
+
+    Bump boringssl
+
+commit 5f1a007f1e857685931c360e789875e09c702c63
+Merge: e1402293 993da54e
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2026-05-13
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-05-13
+
+    Merge pull request #2173 from ngtcp2/bump-openssl
+    
+    Bump openssl to v4.0.0
+
+commit 993da54ec48eefd43a4cbe801b1325c049f28eda
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-05-13
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-05-13
+
+    Bump openssl to v4.0.0
+
+commit e1402293cac758c7a6b67011802bc059b21253d8
+Merge: 85b336f1 c042ac75
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2026-05-13
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-05-13
+
+    Merge pull request #2172 from ngtcp2/avoid-azure-ubuntu-mirror
+    
+    GHA: Avoid azure Ubuntu mirror
+
+commit c042ac756c2922c8bdadecdc194e5ebe51dcc139
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-05-13
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-05-13
+
+    GHA: Avoid azure Ubuntu mirror
+
+commit 85b336f105da862d33daddcf858de79cd1f547ff
+Merge: abfd106f 5bd103b5
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2026-05-11
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-05-11
+
+    Merge pull request #2171 from ngtcp2/bbr-cap-max-drain-rounds
+    
+    bbr: Cap maximum drain rounds
+
+commit 5bd103b5e0a847ec3757bd38545fa02b383f54e0
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-05-11
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-05-11
+
+    bbr: Cap maximum drain rounds
+
+commit abfd106fb70a509fdcc9e3549fa593e7f33c09b0
+Merge: 31cfd36b d55f78c1
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2026-05-11
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-05-11
+
+    Merge pull request #2170 from ngtcp2/rst-rename
+    
+    rst: Rename TCP centric variable names
+
+commit d55f78c15844196b7618e4874fdc460339f545e3
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-05-11
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-05-11
+
+    rst: Rename TCP centric variable names
+
+commit 31cfd36b7e38e376327a5659753dac963c711202
+Merge: 9df28110 5b73c3ca
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2026-05-08
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-05-08
+
+    Merge pull request #2169 from ngtcp2/add-missing-crypto-fields-init
+    
+    Add missing initialization for fields that are not used for CRYPTO
+
+commit 5b73c3cabc38bfe9370e395d8a15d26d9086abf4
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-05-08
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-05-08
+
+    Add missing initialization for fields that are not used for CRYPTO
+
+commit 9df281100062c4df01edfc4ff61d37deeef0caa8
+Merge: 88f9f657 78e535b1
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2026-05-08
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-05-08
+
+    Merge pull request #2168 from ngtcp2/examples-remove-unneeded-iostream
+    
+    examples: Remove unneeded iostream include
+
+commit 78e535b104ac29fa4280d0fc39e347d979fb3c41
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-05-08
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-05-08
+
+    examples: Remove unneeded iostream include
+
+commit 88f9f6576226ea7fd4aeb81ce809a71a3ae03413
+Merge: 5c08fb50 fbb09986
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2026-04-29
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-04-29
+
+    Merge pull request #2167 from ngtcp2/examples-ensure-require-token
+    
+    examples: Send stateless reset if token is required and unreadable
+
+commit fbb0998615daa3a557817fc5086de93d6da3676c
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-04-29
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-04-29
+
+    examples: Send stateless reset if token is required and unreadable
+
+commit 5c08fb5036627ec31df01fd038f84f90e1def211
+Merge: 139eb9da 07642b66
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2026-04-23
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-04-23
+
+    Merge pull request #2166 from ngtcp2/examples-fix-parse_uint_internal
+    
+    examples: Fix parse_uint_internal
+
+commit 07642b66f13fa33b38318b71591fbb290e477731
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-04-23
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-04-23
+
+    examples: Fix parse_uint_internal
+
+commit 139eb9daad9f24d1811fd2f37e338d1b81bc3c42
+Merge: 582d43c5 991742f0
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2026-04-21
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-04-21
+
+    Merge pull request #2164 from ngtcp2/pq-designated-init
+    
+    pq: Adopt designated initializers
+
+commit 991742f0180b8c0897ff02fa24f06581a4b2ff5e
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-04-21
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-04-21
+
+    pq: Adopt designated initializers
+
+commit 582d43c5d64ee334887438f598beeb0127dff351
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-04-21
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-04-21
+
+    clang-format
+
+commit de8e6379d38fcaab4f742b4e2baaf174fd382c2b
+Merge: a079ae65 4737c683
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2026-04-20
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-04-20
+
+    Merge pull request #2162 from nak3/libressl-4.3.1-mlkem
+    
+    examples: Enable X25519MLKEM768 for LibreSSL
+
+commit 4737c683f1064f038f17e5ffafe5c3ddaf23d7af
+Author:     Kenjiro Nakayama <nakayamakenjiro@gmail.com>
+AuthorDate: 2026-04-19
+Commit:     Kenjiro Nakayama <nakayamakenjiro@gmail.com>
+CommitDate: 2026-04-19
+
+    examples: Enable X25519MLKEM768 for LibreSSL
+
+commit a079ae6561529ad51b6bbecfc4423263727a5766
+Merge: 271ae91d 172be6db
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2026-04-19
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-04-19
+
+    Merge pull request #2161 from nak3/libressl-4.3.1
+    
+    Bump LibreSSL to v4.3.1
+
+commit 172be6dbd620d039579203f60d65da7f38b9b5c1
+Author:     Kenjiro Nakayama <nakayamakenjiro@gmail.com>
+AuthorDate: 2026-04-19
+Commit:     Kenjiro Nakayama <nakayamakenjiro@gmail.com>
+CommitDate: 2026-04-19
+
+    Bump LibreSSL to v4.3.1
+
+commit 271ae91d5fca2afd62064df98e93640ebce93027
+Merge: 3f1624d9 a8b78b8f
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2026-04-16
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-04-16
+
+    Merge pull request #2160 from ngtcp2/log-enhancement
+    
+    Log enhancement
+
+commit a8b78b8f2b8b234ec416b5c9fc50f7c69a630ba7
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-04-16
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-04-16
+
+    Shorten reason to log in connection close
+
+commit d53e7b10dfcd8e893b176cefb92aa73a155cab99
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-04-16
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-04-16
+
+    Add formatters for stateless reset token and path challenge data
+
+commit 3f1624d98f6fa7ac2b72e48003c8872d7e8f8f3c
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-04-16
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-04-16
+
+    Bump library version due to the patch release
+
+commit 87c0fb7a71f2d3799e72908a4ce5a6087ecd67a4
+Merge: 5e76bca3 9f9c2cc9
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2026-04-16
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-04-16
+
+    Merge pull request #2158 from ngtcp2/fix-qlog-params-set-stack-overflow
+    
+    Fix qlog params set stack overflow
+
+commit 9f9c2cc948468f1c4e68485e9d2dc82ee762ae87
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-04-10
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-04-16
+
+    tests: Add qlog tests for writes that use fixed buffers
+
+commit 60259a73da193bf1da2b2716e89ae62b55540a88
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-04-10
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-04-16
+
+    Fix qlog parameters_set stack buffer overflow
+
+commit 5e76bca3399e6c498b1d898caef71d1e65b28b51
+Merge: 36e74b12 70d26ba3
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2026-04-15
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-04-15
+
+    Merge pull request #2157 from ngtcp2/large-idle-timeout
+    
+    Deal with large max_idle_timeout that could overflow in computation
+
+commit 70d26ba3e59d10eb5f977b5b19d07c09489442ae
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-04-15
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-04-15
+
+    Deal with large max_idle_timeout that could overflow in computation
+
+commit 36e74b12479c6d4ea548da755067ce89656b04d2
+Merge: 713b10da 385c7e5c
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2026-04-15
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-04-15
+
+    Merge pull request #2156 from ngtcp2/revert-2139-fix/idle-timeout-overflow
+    
+    Revert "fix: prevent max_idle_timeout multiplication overflow in transport params decode"
+
+commit 385c7e5ce1d647fe1ba513b43422df078aa1bebd
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2026-04-15
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-04-15
+
+    Revert "fix: prevent max_idle_timeout multiplication overflow in transport params decode"
+
+commit 713b10dacf2e6979ae847f8c277dde3d305331d8
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-04-15
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-04-15
+
+    Revert "clang-format"
+    
+    This reverts commit 3dd7286e9d95565b9675a9dd74d1b08b259a3327.
+
+commit 028c157d62587a1c80d21e83808d1365417d17a4
+Merge: afef301b e38dcfa1
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2026-04-13
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-04-13
+
+    Merge pull request #2155 from ngtcp2/examples-fix-ech-config-list
+    
+    examples: Read ECH configuration PEM in the correct format
+
+commit e38dcfa1275ec9dc0fc6a829ff53e6975ebcb37b
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-04-12
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-04-13
+
+    examples: Read ECH configuration PEM in the correct format
+
+commit afef301b6ab08566e607bc45e8d46af5b70b6e9e
+Merge: 608126c8 55ab70ee
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2026-04-13
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-04-13
+
+    Merge pull request #2154 from ngtcp2/dependabot/github_actions/actions/github-script-9
+    
+    build(deps): bump actions/github-script from 8 to 9
+
+commit 55ab70eedd3900a9401a85ad2b922095b6916166
+Author:     dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
+AuthorDate: 2026-04-13
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-04-13
+
+    build(deps): bump actions/github-script from 8 to 9
+    
+    Bumps [actions/github-script](https://github.com/actions/github-script) from 8 to 9.
+    - [Release notes](https://github.com/actions/github-script/releases)
+    - [Commits](https://github.com/actions/github-script/compare/v8...v9)
+    
+    ---
+    updated-dependencies:
+    - dependency-name: actions/github-script
+      dependency-version: '9'
+      dependency-type: direct:production
+      update-type: version-update:semver-major
+    ...
+    
+    Signed-off-by: dependabot[bot] <support@github.com>
+
+commit 608126c8e982fb18bb8cca0f9401f183f3e666b8
+Merge: a163d8de c5614c57
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2026-04-12
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-04-12
+
+    Merge pull request #2153 from ngtcp2/crypto-fix-token-timeout-overflow
+    
+    crypto: Deal with overflow when computing token timeout
+
+commit c5614c57339d389b27ad404316947973307a902c
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-04-12
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-04-12
+
+    crypto: Deal with overflow when computing token timeout
+
+commit a163d8dead228e0c065dc212726dcdbddad94c9e
+Merge: 3020359e c32eacec
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2026-04-12
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-04-12
+
+    Merge pull request #2152 from ngtcp2/remove-stale-func-decl
+    
+    Remove stale function declarations
+
+commit c32eacecc89c7ba03fe2b437a15b86ab321f4f50
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-04-12
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-04-12
+
+    Remove stale function declarations
+
+commit 3020359e97c9d7ec360e3c31ab7d5ba64ddeca2b
+Merge: 3ba22b13 0613a204
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2026-04-12
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-04-12
+
+    Merge pull request #2151 from ngtcp2/simplify-and-const
+    
+    Add const and remove duplicated code
+
+commit 0613a204e898e319cf526e2f56f08ec0caddf44b
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-04-12
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-04-12
+
+    Add const and remove duplicated code
+
+commit 3ba22b1392cd39b46db8011490badb1c3ed66da0
+Merge: d967e93c df45330f
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2026-04-12
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-04-12
+
+    Merge pull request #2150 from ngtcp2/examples-inline-server-name
+    
+    examples: Add inline to NGTCP2_SERVER
+
+commit df45330f230198c1c1766e68b7221c831561f585
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-04-12
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-04-12
+
+    examples: Add inline to NGTCP2_SERVER
+
+commit d967e93c47a714f47fe554206f9e8bac9276f67b
+Merge: 80f1e896 f09e8e36
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2026-04-12
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-04-12
+
+    Merge pull request #2149 from ngtcp2/cryptotest
+    
+    crypto: Add tests for token validation
+
+commit f09e8e36f78b3d3d6c92b67c68487611c6de4afc
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-04-11
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-04-12
+
+    crypto: Add tests for token validation
+
+commit 80f1e8967939843b3b2f996aea7c4b584ee0447c
+Merge: aacb8d14 1c3b9432
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2026-04-11
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-04-11
+
+    Merge pull request #2148 from ngtcp2/fix-grammatical-errors
+    
+    Fix grammatical errors
+
+commit 1c3b9432f99c487b4f74167b8d4f651d8849f95a
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-04-11
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-04-11
+
+    Fix grammatical errors
+
+commit aacb8d14bfeacd82ce63cc90ff97b4ed6ec72828
+Merge: 7c13ef33 dc702a73
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2026-04-11
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-04-11
+
+    Merge pull request #2146 from ngtcp2/add-const-version
+    
+    Add const version
+
+commit dc702a7322104875cb458989bf625dcd01e9aec5
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-04-11
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-04-11
+
+    Add const version
+
+commit 7c13ef33e2e25258dfa0fd29bba530362ad799ef
+Merge: 8b413155 7e4c5bd9
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2026-04-10
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-04-10
+
+    Merge pull request #2145 from ngtcp2/clear-secrets-and-keys
+    
+    Clear sensitive secrets and keys after use
+
+commit 7e4c5bd9a9dca7f0078b7fa0bea4148c821410fd
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-04-10
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-04-10
+
+    Clear sensitive secrets and keys after use
+
+commit 8b413155b0fd37e6d52f8ab35baff21fb04967d9
+Merge: 31f3405a 31f3f907
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2026-04-10
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-04-10
+
+    Merge pull request #2144 from ngtcp2/secure-clear
+    
+    Add ngtcp2_secure_clear
+
+commit 31f3f9076e5507c1df3b9a1dc30a6e1509dbc6d7
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-04-10
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-04-10
+
+    Add ngtcp2_secure_clear
+
+commit 31f3405a4fd5375d1478653f1bfd86f58a3332e5
+Merge: 3dd7286e 273ea76b
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2026-04-09
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-04-09
+
+    Merge pull request #2142 from ngtcp2/rewrite-win-ntoh
+    
+    Rewrite fallback ntoh/hton functions for win32
+
+commit 273ea76b1cf21e2ae425e1388e00d07a960c39a1
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-04-09
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-04-09
+
+    Rewrite fallback ntoh/hton functions for win32
+    
+    Because we assume win32 build is little endian only, we always do
+    byteswap.
+
+commit 3dd7286e9d95565b9675a9dd74d1b08b259a3327
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-04-09
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-04-09
+
+    clang-format
+
+commit 85e3141b3609250e9004ae6bf6fdc8069ee6f3ea
+Merge: 31f5d476 30d5c3bb
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2026-04-09
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-04-09
+
+    Merge pull request #2139 from Alex-Tsvetanov/fix/idle-timeout-overflow
+    
+    fix: prevent max_idle_timeout multiplication overflow in transport params decode
+
+commit 31f5d476e3540a78d42b1e1635fdaad138fd2e50
+Merge: fb4f78ed d4113866
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2026-04-09
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-04-09
+
+    Merge pull request #2141 from ngtcp2/examples-fixup
+    
+    Examples fixup
+
+commit d4113866013398e53875c72943f9d6b231d4a2b2
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-04-08
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-04-09
+
+    examples: Remove the line commented out
+
+commit a03d6c7f87477c113bdcc8ab1c6e679f238dfefe
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-04-08
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-04-09
+
+    examples: Fix include guard macros
+
+commit fb4f78ededd0a895256ff20d37e07ccb99f7b0e1
+Merge: 2edf89c4 955003f5
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2026-04-09
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-04-09
+
+    Merge pull request #2128 from ngtcp2/generic-max-min
+    
+    Provide generic ngtcp2_max and ngtcp2_min
+
+commit 955003f5e57a3f1cf4dca713475ab6cca3474320
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-04-08
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-04-09
+
+    Provide generic ngtcp2_max and ngtcp2_min
+
+commit 30d5c3bb7fcc69b5bf859c365a585ef56b711333
+Author:     Alex Tsvetanov <alex.tsvetanov0+github@gmail.com>
+AuthorDate: 2026-04-09
+Commit:     Alex Tsvetanov <alex.tsvetanov0+github@gmail.com>
+CommitDate: 2026-04-09
+
+    fix: use named constants and ngtcp2_put_uvarint helpers in test
+
+commit e243429e2e016633c11a199b9b77af85d7e123fc
+Author:     Alex Tsvetanov <alex.tsvetanov0+github@gmail.com>
+AuthorDate: 2026-04-09
+Commit:     Alex Tsvetanov <alex.tsvetanov0+github@gmail.com>
+CommitDate: 2026-04-09
+
+    fix: prevent max_idle_timeout multiplication overflow in transport params decode
+
+commit 2edf89c4c4b6be22ee9f9ea6160c1b47d07eab12
+Merge: 4109d790 7c5db27c
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2026-04-09
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-04-09
+
+    Merge pull request #2127 from ngtcp2/examples-fs-path
+    
+    examples: Use std::filesystem::path for file path
+
+commit 7c5db27cfb40e530f722ff9260ca5c8a37f4b8e3
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-04-08
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-04-08
+
+    examples: Use std::filesystem::path for file path
+
+commit 4109d790cf31d7468c69780a5ea932574116763e
+Merge: 043aeaa3 0bf470d2
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2026-04-08
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-04-08
+
+    Merge pull request #2126 from ngtcp2/examples-avoid-strcmp
+    
+    examples: Prefer operator== to strcmp
+
+commit 0bf470d2182fef5f9fed0108cfcc425ba19d85ca
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-04-08
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-04-08
+
+    examples: Prefer operator== to strcmp
+
+commit 043aeaa30e0bdf532d848ee08d4877183e0877b6
+Merge: 620ed06f 35df28e5
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2026-04-08
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-04-08
+
+    Merge pull request #2125 from ngtcp2/clang-format-qualifier-order
+    
+    Specify QualifierOrder
+
+commit 35df28e51f228d19956263ad19cd7fd56a0d511a
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-04-08
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-04-08
+
+    Specify QualifierOrder
+
+commit 620ed06f5644300c836876d307a2b78e1251e933
+Merge: c26693ba bf129770
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2026-04-08
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-04-08
+
+    Merge pull request #2124 from ngtcp2/transit-to-closing-state-on-app-close
+    
+    Transit to closing state when sending application close
+
+commit bf129770feb16e9aaa4c5ed23ebec98ae66e6e4e
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-04-08
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-04-08
+
+    Transit to closing state when sending application close
+
+commit c26693ba41d5924a42e9d10c205a9c260aba31f7
+Merge: fe8c6bac 9e259e74
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2026-04-08
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-04-08
+
+    Merge pull request #2123 from ngtcp2/try-emplace
+    
+    examples: Use try_emplace for safe insertion of move only object
+
+commit 9e259e74424efefbea4fc5b63f30c478bd66ddf6
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-04-08
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-04-08
+
+    examples: Use try_emplace for safe insertion of move only object
+
+commit fe8c6baca8318c6559ddc89691f44a8d44d86045
+Merge: c51def59 3eeb54cd
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2026-04-08
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-04-08
+
+    Merge pull request #2122 from ngtcp2/static-constexpr
+    
+    examples: Use static constexpr for somewhat large structs
+
+commit 3eeb54cd3507506570bad7862570ca2ce6a78ed2
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-04-08
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-04-08
+
+    examples: Use static constexpr for somewhat large structs
+
+commit c51def597c996c04423ac52dba3381cca90d717e
+Merge: b9e41dfb 95039a72
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2026-04-08
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-04-08
+
+    Merge pull request #2121 from ngtcp2/size_t-literals
+    
+    examples: Use UZ for size_t
+
+commit 95039a72e3b8891112e797e60e2c58fe32563744
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-04-08
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-04-08
+
+    examples: Use UZ for size_t
+
+commit b9e41dfb28c0cc6fc088f045f109815d955e0c83
+Merge: c2959fa4 bc403c39
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2026-04-08
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-04-08
+
+    Merge pull request #2120 from ngtcp2/remove-anon-ns-around-constexpr
+    
+    examples: Stop surrounding constexpr variables with anonymous namespace
+
+commit bc403c39f5ada9d2cb6fe36219e3240535d532f9
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-04-08
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-04-08
+
+    examples: Stop surrounding constexpr variables with anonymous namespace
+
+commit c2959fa46e346ffe7c858716d3970bafdddde36c
+Merge: c6dac572 f7e9fbed
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2026-04-08
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-04-08
+
+    Merge pull request #2119 from ngtcp2/fix-integral-suffix
+    
+    Use ULL consistently
+
+commit f7e9fbed26ae2541fc488275f416d2b4f02a3fa4
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-04-07
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-04-07
+
+    Use ULL consistently
+
+commit c6dac572eed47d7d12b6b6383d9e838591a6c24b
+Merge: 805fc330 a9e189a9
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2026-04-06
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-04-06
+
+    Merge pull request #2117 from ngtcp2/examples-protocodec
+    
+    examples: Introduce ProtoCodec to deduplicate examples
+
+commit a9e189a9c1ccc1ab7e1a6eb67d737ae1defb2f60
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-04-06
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-04-06
+
+    examples: Introduce ProtoCodec to deduplicate examples
+    
+    Rename h09wsslclient and h09wsslserver to wsslhqclient and
+    wsslhqserver respectively to clarify the supported protocol.
+
+commit 805fc3309a1fa576959ceee3316ce0d8f7e23741
+Merge: 96abe03a 08b1dae4
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2026-04-05
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-04-05
+
+    Merge pull request #2103 from ngtcp2/faster-logging
+    
+    log: Faster logging
+
+commit 08b1dae411e72be16ec770ed7099ce6152d5d5e7
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-03-24
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-04-05
+
+    log: Faster logging
+    
+    Add new logging formatter that does not require to parse format string
+    every time, and provides mostly type safe serialization for all types
+    required in ngtcp2.  It gets rid of the need for fprintf family, which
+    is notoriously complex and slow.  New callback function,
+    ngtcp2_settings.log_write, is provided for this new formatter.  The
+    old ngtcp2_settings.log_printf still works.  The format string is
+    always "%s", and the argument is the pointer to the formatted string.
+    
+    The new formatter uses _Generic macro which has been introduced by
+    C11.
+
+commit 96abe03ae186dc36862e1501001a94809e5ec37e
+Merge: 530bfa90 a536d17c
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2026-04-04
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-04-04
+
+    Merge pull request #2115 from ngtcp2/examples-refine-formatter
+    
+    examples: Refine formatter
+
+commit a536d17cf9846f932e464dc629de43e07aa5398d
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-04-04
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-04-04
+
+    examples: Refine formatter
+    
+    Pass const ref ngtcp2_cid to formatter.  Make format function
+    template.
+
+commit 530bfa90b4a0e07e02d14ccc8e1edab031b02f38
+Merge: 0a47bd69 c00012b8
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2026-04-03
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-04-03
+
+    Merge pull request #2113 from ngtcp2/examples-rewrite-split-str
+    
+    examples: Rewrite util::split_str
+
+commit c00012b89f924346646741399dc27d1331012136
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-04-02
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-04-03
+
+    examples: Rewrite util::split_str
+
+commit 0a47bd69ec4d2c6f319595fc8acc3a54638c394b
+Merge: 1a8e958c 00a0124c
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2026-03-29
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-03-29
+
+    Merge pull request #2112 from ngtcp2/examples-sim-std-print
+    
+    examples: Use std::print for sim
+
+commit 00a0124c269f6cdd998931676479a4108ea2239e
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-03-29
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-03-29
+
+    examples: Use std::print for sim
+
+commit 1a8e958ca0ca7b7661db2bf203f2ffa92cd108b9
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-03-29
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-03-29
+
+    Bump package version

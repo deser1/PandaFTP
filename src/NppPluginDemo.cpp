@@ -16,6 +16,8 @@
 //Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 
 #include "PluginDefinition.h"
+#include "EventManager.h"
+#include "ConfigManager.h"
 
 extern FuncItem funcItem[nbFunc];
 extern NppData nppData;
@@ -51,6 +53,13 @@ BOOL APIENTRY DllMain(HANDLE hModule, DWORD  reasonForCall, LPVOID /*lpReserved*
 extern "C" __declspec(dllexport) void setInfo(NppData notpadPlusData)
 {
 	nppData = notpadPlusData;
+    
+    // Ustawienie poprawnej sciezki do pliku konfiguracyjnego w folderze Notepad++
+    wchar_t configDir[MAX_PATH];
+    ::SendMessage(nppData._nppHandle, NPPM_GETPLUGINSCONFIGDIR, MAX_PATH, (LPARAM)configDir);
+    std::wstring configPath = std::wstring(configDir) + L"\\PandaFTP.json";
+    ConfigManager::getInstance().loadConfig(configPath);
+    
 	commandMenuInit();
 }
 
@@ -75,6 +84,27 @@ extern "C" __declspec(dllexport) void beNotified(SCNotification *notifyCode)
 			commandMenuCleanUp();
 		}
 		break;
+        
+        case NPPN_FILESAVED:
+        {
+            // notifyCode->nmhdr.idFrom contains the path of the saved file as buffer, but let's use NPPM_GETFULLCURRENTPATH instead.
+            
+            wchar_t currentPath[MAX_PATH];
+            ::SendMessage(nppData._nppHandle, NPPM_GETFULLCURRENTPATH, MAX_PATH, (LPARAM)currentPath);
+            
+            EventManager::getInstance().onFileSaved(currentPath);
+        }
+        break;
+        
+        case NPPN_FILEBEFORECLOSE:
+        {
+            // nmhdr.idFrom to wskaznik na bufor z pelna sciezka zamykanego pliku
+            if (notifyCode->nmhdr.idFrom) {
+                wchar_t* closedPath = (wchar_t*)notifyCode->nmhdr.idFrom;
+                EventManager::getInstance().onFileClosed(closedPath);
+            }
+        }
+        break;
 
 		default:
 			return;

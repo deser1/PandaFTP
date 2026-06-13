@@ -1,0 +1,650 @@
+commit 2b77da6dc6cd00897ad18540b0d5ce3c4fbf3d2b
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-05-31
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-05-31
+
+    Bump package and library versions
+
+commit 10cd27af0b64110821b2876fdaecd8b177831f06
+Merge: 5a3ae44 cc89698
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2026-05-30
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-05-30
+
+    Merge pull request #516 from ngtcp2/more-static-const
+    
+    More static const
+
+commit cc89698e2b86fda55c1e71593bf72be0fbc2a52b
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-05-30
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-05-30
+
+    More static const
+
+commit 5a3ae44108ac0227db90b6d87204ad2fc5839d62
+Merge: 08f8e44 a6892ea
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2026-05-30
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-05-30
+
+    Merge pull request #515 from ngtcp2/deny-lz-status-code
+    
+    lib: Do not allow HTTP status code that contains leading zero
+
+commit a6892ea75fef6031c60bd545a9b76766534c3769
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-05-30
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-05-30
+
+    lib: Do not allow HTTP status code that contains leading zero
+
+commit 08f8e448e95de04600a83f76ba532d51c25c2dfd
+Merge: f475876 2ac1d68
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2026-05-29
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-05-29
+
+    Merge pull request #514 from ngtcp2/parse-status-code
+    
+    lib: Dedicated function to parse 3 digits HTTP status code
+
+commit 2ac1d68c06660422dfec07e83ed7c0ed33a99ed2
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-05-29
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-05-29
+
+    lib: Dedicated function to parse 3 digits HTTP status code
+
+commit f47587676dc1fae7f1170b07664569315a8707ae
+Merge: 185f207 0ac6451
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2026-05-29
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-05-29
+
+    Merge pull request #513 from ngtcp2/rewrite-parse-uint
+    
+    lib: Rewrite parse_uint
+
+commit 0ac645184bfec123a0e6d5ae9a16081e64af990e
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-05-29
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-05-29
+
+    lib: Rewrite parse_uint
+
+commit 185f207d0541ff2414162fc0d1c01a083b4110a5
+Merge: 7d03b7a b5f448d
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2026-05-26
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-05-26
+
+    Merge pull request #512 from ngtcp2/remove-put-varint
+    
+    conv: Remove nghttp3_put_varint variants
+
+commit b5f448d0d0e9d2fc452d156c089bb8ffd031369d
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-05-26
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-05-26
+
+    conv: Remove nghttp3_put_varint variants
+    
+    Remove nghttp3_put_varint variants and just use nghttp3_put_uvarint
+    instead.
+
+commit 7d03b7a65c63e44978438cee56a5b914b504b1d5
+Merge: 4cbfc8e 3028cf1
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2026-05-26
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-05-26
+
+    Merge pull request #511 from ngtcp2/remove-legacy-pri-macro-and-comment
+    
+    Remove legacy comments and macros regarding extensible priorities
+
+commit 3028cf1fc9951458e9975713768f456ac7c99a4d
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-05-26
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-05-26
+
+    Remove legacy comments and macros regarding extensible priorities
+
+commit 4cbfc8e353f2ea0777efdd2605d157abd5c7163f
+Merge: 37ecb47 9014faa
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2026-05-26
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-05-26
+
+    Merge pull request #510 from ngtcp2/win32-bswap-macro
+    
+    conv: Use macros for win32 hton*/ntoh* fallbacks
+
+commit 9014faa5a35ef0d77fd0e1ce087f3e7cd71cf723
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-05-26
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-05-26
+
+    conv: Use macros for win32 hton*/ntoh* fallbacks
+
+commit 37ecb4793af1b5618b2bc0b5bd0db18082266999
+Merge: 6736b61 ded2e34
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2026-05-26
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-05-26
+
+    Merge pull request #509 from ngtcp2/func-macros-bswap64
+    
+    conv: Use function like macro style for nghttp3_bswap64
+
+commit ded2e3420a8e98dcaca9eb5670e5818a3078ecd7
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-05-26
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-05-26
+
+    conv: Use function like macro style for nghttp3_bswap64
+
+commit 6736b6168034a3c85eda378a19f13aa80dc1cff7
+Merge: f3e6e00 5c1421c
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2026-05-22
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-05-22
+
+    Merge pull request #508 from ngtcp2/win32-byteswap
+    
+    Rewrite win32 byte order conversion functions
+
+commit 5c1421c8ffb67bbb0045a9806f0d906e9a7c8e1f
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-05-22
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-05-22
+
+    Rewrite win32 byte order conversion functions
+
+commit f3e6e00f6f590cddf18ae3d79738527bedc5a528
+Merge: f22a895 8bb2ad3
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2026-05-22
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-05-22
+
+    Merge pull request #507 from ngtcp2/unsigned-types-and-payload
+    
+    Make frame types and payload length unsigned
+
+commit 8bb2ad3e9014ed2622fc66a4f6580d11e01dc217
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-05-22
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-05-22
+
+    Make frame types and payload length unsigned
+
+commit f22a8952a505de7c1d6958d0bcdceee38b6fc875
+Merge: f65da39 5da92e9
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2026-05-22
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-05-22
+
+    Merge pull request #506 from ngtcp2/unsigned-hex-int-literals
+    
+    Make hex integer literals unsigned where appropriate
+
+commit 5da92e9f3163d8f82f8e2998812d4e82708f4872
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-05-22
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-05-22
+
+    Make hex integer literals unsigned where appropriate
+
+commit f65da3946b6736845cd7f845d213c0d7e1506fb9
+Merge: ce66652 0f74ecc
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2026-05-22
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-05-22
+
+    Merge pull request #505 from ngtcp2/cleanup-bitwise-neg
+    
+    Cleanup bitwise negation operations
+
+commit 0f74ecc2869e5dd153d4267fe1c7b30ebc4f43a3
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-05-22
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-05-22
+
+    Cleanup bitwise negation operations
+
+commit ce666520237a7f13b8d0f011d52774f80eaaffb3
+Merge: 8cffa60 895757d
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2026-05-22
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-05-22
+
+    Merge pull request #504 from ngtcp2/extended-connect-cl
+    
+    Ignore content-length for the extended CONNECT
+
+commit 895757dd9c243bcd9a782d0ec4e071f6639d978e
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-05-22
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-05-22
+
+    Ignore content-length for the extended CONNECT
+    
+    We have ignored content-length for regular CONNECT method.  Do the
+    same thing for the extended CONNECT as well.
+
+commit 8cffa60cb48ef354212c76889a9eee65902bb630
+Merge: 7a4304f 215aaed
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2026-05-18
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-05-18
+
+    Merge pull request #503 from ngtcp2/doc-adopt-sphinx-version-directive
+    
+    doc: Adopt sphinx version-added and version-deprecated directives
+
+commit 215aaede778801cb2560a44abc385dacb9aca192
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-05-18
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-05-18
+
+    doc: Adopt sphinx version-added and version-deprecated directives
+
+commit 7a4304fe262fb693e40350dd7eb20e266a8d50b5
+Merge: 158f898 c8b9501
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2026-05-18
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-05-18
+
+    Merge pull request #502 from ngtcp2/add-missing-doc
+    
+    Add missing doc
+
+commit c8b9501d3f2e62891e541b30579aef22318f2515
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-05-18
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-05-18
+
+    Add missing doc
+
+commit 158f8983e3f2721de02c63ef1738fb69f8bbf7ce
+Merge: fb83cc4 713ced2
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2026-05-15
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-05-15
+
+    Merge pull request #500 from ngtcp2/port-ngtcp2-ksl-changes
+    
+    lib: Port ngtcp2 changes in nghttp3_ksl
+
+commit 713ced23b32d30869e38b4244572cac93d102ced
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-05-15
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-05-15
+
+    lib: Port ngtcp2 changes in nghttp3_ksl
+
+commit fb83cc4501de4ade212c89cdd245a0f6f47e6027
+Merge: 01d5d4d 8ab24e6
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2026-05-15
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-05-15
+
+    Merge pull request #499 from ngtcp2/add-generic-max-mix
+    
+    Add generic nghttp3_max and nghttp3_min with C11 _Generic
+
+commit 8ab24e63c2cfa7dbce064a0bdf6cfc1e461c9f1f
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-05-15
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-05-15
+
+    Add generic nghttp3_max and nghttp3_min with C11 _Generic
+
+commit 01d5d4d1359c402b6b0188e39d33a77e75d18846
+Merge: abbeb44 acc3694
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2026-05-15
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-05-15
+
+    Merge pull request #498 from ngtcp2/fix-deprecated-literal-operator-syntax
+    
+    examples: Fix literal operator syntax
+
+commit acc36943cda039756bbb1d04def372f562e9bb1d
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-05-15
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-05-15
+
+    examples: Fix literal operator syntax
+
+commit abbeb447774372e5ffc8d02a0f9b5304963faea4
+Merge: e7a5a61 07c9ab4
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2026-05-13
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-05-13
+
+    Merge pull request #497 from ngtcp2/avoid-azure-ubuntu-mirror
+    
+    GHA: Avoid azure Ubuntu mirror
+
+commit 07c9ab4db6629b9e4417ef547e822cdcb1c7eb64
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-05-13
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-05-13
+
+    GHA: Avoid azure Ubuntu mirror
+
+commit e7a5a617ddf04b46eb7ce0ddaf3e318b1b46017d
+Merge: 7704347 365d343
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2026-04-18
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-04-18
+
+    Merge pull request #496 from ngtcp2/get-stream-user-data
+    
+    Add nghttp3_conn_get_stream_user_data
+
+commit 365d34358fb56768d62eed7f576376a3d6936424
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-04-16
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-04-18
+
+    Add nghttp3_conn_get_stream_user_data
+
+commit 77043471c6f233d979dbd8113288eb25c292dd2e
+Merge: b0e2d0c e7400e1
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2026-04-15
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-04-15
+
+    Merge pull request #495 from ngtcp2/fix-cast
+    
+    Fix integer cast
+
+commit e7400e1d8001f205c857ca114861f6007c96c170
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-04-15
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-04-15
+
+    Fix integer cast
+
+commit b0e2d0cd532f44ccddd76cbe3c28f14f031fdf7f
+Merge: f094c3c 712ce82
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2026-04-15
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-04-15
+
+    Merge pull request #494 from ngtcp2/optimize-huffman-decode-length-estimation
+    
+    Optimize huffman decode length estimation
+
+commit 712ce82979f361858f928a0b77f2ca8edeefe8ef
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-04-15
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-04-15
+
+    Optimize huffman decode length estimation
+
+commit f094c3c15051a67f47f84269eecace4bfbb3d787
+Merge: baf760d 205e9e7
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2026-04-14
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-04-14
+
+    Merge pull request #493 from ngtcp2/dependabot/github_actions/actions/github-script-9
+    
+    Bump actions/github-script from 8 to 9
+
+commit 205e9e7f2604fb1af969317eb532b8f96cf93fc0
+Author:     dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
+AuthorDate: 2026-04-13
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-04-13
+
+    Bump actions/github-script from 8 to 9
+    
+    Bumps [actions/github-script](https://github.com/actions/github-script) from 8 to 9.
+    - [Release notes](https://github.com/actions/github-script/releases)
+    - [Commits](https://github.com/actions/github-script/compare/v8...v9)
+    
+    ---
+    updated-dependencies:
+    - dependency-name: actions/github-script
+      dependency-version: '9'
+      dependency-type: direct:production
+      update-type: version-update:semver-major
+    ...
+    
+    Signed-off-by: dependabot[bot] <support@github.com>
+
+commit baf760d10cc9d355d597b9dc43738247b8b01d14
+Merge: ed74ccb 043ad76
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2026-04-11
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-04-11
+
+    Merge pull request #464 from ngtcp2/add-const-version
+    
+    Add const version
+
+commit 043ad76ec94e1201e42d0a92fe379a2f5c6c1de2
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-04-11
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-04-11
+
+    Add const version
+
+commit ed74ccb154422f9cf03d026388992479e22d0e49
+Merge: a3941f8 c197e0d
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2026-04-11
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-04-11
+
+    Merge pull request #463 from ngtcp2/const
+    
+    Add const qualifier
+
+commit c197e0de9ae1fea13d54f1b366283eb5f4df8ddc
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-04-11
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-04-11
+
+    Add const qualifier
+
+commit a3941f881b1fcd3e2d2abc91f54e895f41018ca8
+Merge: 21526d7 0eec215
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2026-04-02
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-04-02
+
+    Merge pull request #462 from ngtcp2/call-stream-close-for-all-streams
+    
+    Call nghttp3_stream_close callback for all streams
+
+commit 0eec21578ac78d801dcf71de4df64593108a7a9d
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-04-01
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-04-02
+
+    Call nghttp3_stream_close callback for all streams
+    
+    Previously, the callback is only called for client bidirectional
+    streams.  This is fine for pure HTTP/3.  In the advent of
+    WebTransport, this callback should be called for all types of streams,
+    including unidirectional and server-initiated bidirectional streams.
+
+commit 21526d70951fe3a74d02e86afec0322a6bfcc818
+Merge: cb02cda c9dd7e6
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2026-03-04
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-03-04
+
+    Merge pull request #461 from ngtcp2/gha-macos-26
+    
+    GHA: Build with macos-26
+
+commit c9dd7e69e9d349714f9a3d9c1a2bd3e2a1f81a75
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-03-04
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-03-04
+
+    GHA: Build with macos-26
+
+commit cb02cdad7e071435be414635cb627a2018165193
+Merge: c943f7c 247ed18
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2026-03-04
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-03-04
+
+    Merge pull request #460 from ngtcp2/upcase-hex-literals
+    
+    Upcase hex chars in string literal
+
+commit 247ed18d6c3536b2511a635f37d0297f06e345a8
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-03-04
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-03-04
+
+    Upcase hex chars in string literal
+
+commit c943f7cb9c1c1df32d203d3df1c31b5933965aef
+Merge: eeeac2b 855506e
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2026-03-04
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-03-04
+
+    Merge pull request #459 from ngtcp2/more-structured-init
+    
+    More use of designated initializers
+
+commit 855506e3c2daa75fccdfa32c0060b970009ae29f
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-03-04
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-03-04
+
+    More use of designated initializers
+
+commit eeeac2b4ecfc66efa2310948ecb5df0c48cafb1d
+Merge: 78f27c1 2e7cb76
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2026-03-01
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-03-01
+
+    Merge pull request #458 from ngtcp2/copilot/update-numeric-literal-suffixes
+    
+    Uppercase numeric literal suffixes and hex digits in C/C++ sources
+
+commit 2e7cb76a5119d3e232783d7a19443af932dd2f3d
+Author:     copilot-swe-agent[bot] <198982749+Copilot@users.noreply.github.com>
+AuthorDate: 2026-02-28
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-03-01
+
+    Fix numeric literal suffixes and uppercase hex digits
+    
+    Co-authored-by: tatsuhiro-t <404610+tatsuhiro-t@users.noreply.github.com>
+
+commit 78f27c1a4367c33764b36afd4575ef31bd8dde4f
+Merge: e2c3090 9bf7d87
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2026-01-21
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-01-21
+
+    Merge pull request #457 from ngtcp2/fix-memory-leak
+    
+    Fix memory leak on the failure path
+
+commit 9bf7d87690171390a93a25326331e1682504223e
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-01-21
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-01-21
+
+    Fix memory leak on the failure path
+
+commit e2c309076e9438134627debeccb303491ef0a615
+Merge: 2c94802 3c74ef6
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2026-01-21
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-01-21
+
+    Merge pull request #456 from ngtcp2/stream-frq-emplace
+    
+    Create nghttp3_frame directly in ring buffer
+
+commit 3c74ef6d262969b13ecf2bbf6868c772cf2c6b2d
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-01-21
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-01-21
+
+    Create nghttp3_frame directly in ring buffer
+
+commit 2c94802a5e80ac839e0161456125d2be1c1ea13e
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2026-01-20
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2026-01-20
+
+    Bump package version
