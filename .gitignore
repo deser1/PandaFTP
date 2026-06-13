@@ -29,6 +29,8 @@ Release/
 x64/
 x86/
 *.log
+*.zip
+curl/
 
 # vcpkg
 vcpkg_installed/

@@ -67,7 +67,7 @@ INT_PTR CALLBACK ServerManagerDlg::run_dlgProc(UINT message, WPARAM wParam, LPAR
                 int index = (int)::SendMessage(hList, LB_GETCURSEL, 0, 0);
                 if (index != LB_ERR) {
                     auto& profiles = ConfigManager::getInstance().getProfiles();
-                    if (index >= 0 && index < profiles.size()) {
+                    if (index >= 0 && index < static_cast<int>(profiles.size())) {
                         loadProfileData(profiles[index].id);
                     }
                 }
