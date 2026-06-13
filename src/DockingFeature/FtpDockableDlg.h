@@ -7,6 +7,7 @@
 #include "../FtpClient.h"
 #include <string>
 #include <vector>
+#include <memory>
 #include <commctrl.h>
 #include <shellapi.h>
 
@@ -32,9 +33,20 @@ private:
     int getSystemIconIndex(const std::wstring& fileName, bool isDirectory);
     
     ServerManagerDlg _serverManager;
-    FtpClient _ftpClient;
-    std::string _currentProfileId;
     HIMAGELIST _hImageList;
+    
+    struct ServerConnection {
+        std::string profileId;
+        std::string profileName;
+        std::shared_ptr<FtpClient> client;
+        HWND hTree;
+    };
+    
+    std::vector<ServerConnection> _connections;
+    int _activeConnectionIndex = -1;
+    
+    void switchToConnection(int index);
+    void closeConnection(int index);
 };
 
 #endif // FTPDOCKABLEDLG_H

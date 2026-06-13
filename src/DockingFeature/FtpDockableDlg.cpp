@@ -53,21 +53,47 @@ void FtpDockableDlg::displayServerManager() {
 }
 
 void FtpDockableDlg::connectToServer(const std::string& profileId) {
-    _currentProfileId = profileId;
+    // Check if already connected
+    for (size_t i = 0; i < _connections.size(); ++i) {
+        if (_connections[i].profileId == profileId) {
+            switchToConnection((int)i);
+            return;
+        }
+    }
+
     auto& profiles = ConfigManager::getInstance().getProfiles();
     for (const auto& p : profiles) {
         if (p.id == profileId) {
             logMessage(L"Łączenie z serwerem: " + s2ws_dock(p.host) + L"...");
             
-            _ftpClient.setLogCallback([this](const std::string& msg) {
+            auto client = std::make_shared<FtpClient>();
+            client->setLogCallback([this](const std::string& msg) {
                 this->logMessage(s2ws_dock(msg));
             });
             
-            if (_ftpClient.connect(p.host, p.port, p.username, p.password, p.protocol)) {
+            if (client->connect(p.host, p.port, p.username, p.password, p.protocol)) {
+                // If this is the first connection, clear the "Offline" tab
+                HWND hTab = ::GetDlgItem(_hSelf, IDC_TAB_SERVERS);
+                if (_connections.empty()) {
+                    TabCtrl_DeleteAllItems(hTab);
+                }
+
+                // Create new TreeView
+                RECT rc;
+                HWND hDefaultTree = ::GetDlgItem(_hSelf, IDC_TREE_FILES);
+                ::GetWindowRect(hDefaultTree, &rc);
+                MapWindowPoints(NULL, _hSelf, (LPPOINT)&rc, 2);
+                
+                HWND hNewTree = CreateWindowExW(WS_EX_CLIENTEDGE, WC_TREEVIEWW, L"",
+                    WS_CHILD | WS_TABSTOP | TVS_HASBUTTONS | TVS_HASLINES | TVS_LINESATROOT | TVS_SHOWSELALWAYS,
+                    rc.left, rc.top, rc.right - rc.left, rc.bottom - rc.top,
+                    _hSelf, (HMENU)0, _hInst, NULL);
+                
+                TreeView_SetImageList(hNewTree, _hImageList, TVSIL_NORMAL);
+                
+                // Populate TreeView
                 std::vector<RemoteFileInfo> files;
-                if (_ftpClient.listDirectory(p.remoteDir, files)) {
-                    HWND hTree = ::GetDlgItem(_hSelf, IDC_TREE_FILES);
-                    TreeView_DeleteAllItems(hTree);
+                if (client->listDirectory(p.remoteDir, files)) {
                     TVINSERTSTRUCTW tvs = {0};
                     tvs.hParent = TVI_ROOT;
                     tvs.hInsertAfter = TVI_LAST;
@@ -85,17 +111,27 @@ void FtpDockableDlg::connectToServer(const std::string& profileId) {
                         *fullPath += f.name;
                         tvs.item.lParam = (LPARAM)fullPath;
                         
-                        TreeView_InsertItem(hTree, &tvs);
+                        TreeView_InsertItem(hNewTree, &tvs);
                     }
                 }
                 
-                // Update tab name
-                HWND hTab = ::GetDlgItem(_hSelf, IDC_TAB_SERVERS);
+                // Add tab
                 TCITEMW tie = {0};
                 tie.mask = TCIF_TEXT;
                 std::wstring tabName = s2ws_dock(p.name);
                 tie.pszText = (LPWSTR)tabName.c_str();
-                TabCtrl_SetItem(hTab, 0, &tie);
+                int newIndex = (int)_connections.size();
+                TabCtrl_InsertItem(hTab, newIndex, &tie);
+                
+                // Store connection
+                ServerConnection conn;
+                conn.profileId = p.id;
+                conn.profileName = p.name;
+                conn.client = client;
+                conn.hTree = hNewTree;
+                _connections.push_back(conn);
+                
+                switchToConnection(newIndex);
             }
             break;
         }
@@ -108,6 +144,55 @@ void FtpDockableDlg::logMessage(const std::wstring& msg) {
     ::SendMessage(hEdit, EM_SETSEL, len, len);
     std::wstring line = msg + L"\r\n";
     ::SendMessage(hEdit, EM_REPLACESEL, 0, (LPARAM)line.c_str());
+}
+
+void FtpDockableDlg::switchToConnection(int index) {
+    HWND hTab = ::GetDlgItem(_hSelf, IDC_TAB_SERVERS);
+    HWND hDefaultTree = ::GetDlgItem(_hSelf, IDC_TREE_FILES);
+    
+    // Hide all trees
+    ::ShowWindow(hDefaultTree, SW_HIDE);
+    for (auto& conn : _connections) {
+        ::ShowWindow(conn.hTree, SW_HIDE);
+    }
+    
+    if (index >= 0 && index < (int)_connections.size()) {
+        _activeConnectionIndex = index;
+        ::ShowWindow(_connections[index].hTree, SW_SHOW);
+        TabCtrl_SetCurSel(hTab, index);
+    } else {
+        _activeConnectionIndex = -1;
+        ::ShowWindow(hDefaultTree, SW_SHOW);
+        if (_connections.empty()) {
+            TabCtrl_DeleteAllItems(hTab);
+            TCITEMW tie = {0};
+            tie.mask = TCIF_TEXT;
+            tie.pszText = (LPWSTR)L"Offline";
+            TabCtrl_InsertItem(hTab, 0, &tie);
+            TabCtrl_SetCurSel(hTab, 0);
+        }
+    }
+}
+
+void FtpDockableDlg::closeConnection(int index) {
+    if (index < 0 || index >= (int)_connections.size()) return;
+    
+    // Disconnect and destroy tree
+    _connections[index].client->disconnect();
+    ::DestroyWindow(_connections[index].hTree);
+    
+    // Remove tab
+    HWND hTab = ::GetDlgItem(_hSelf, IDC_TAB_SERVERS);
+    TabCtrl_DeleteItem(hTab, index);
+    
+    // Remove from vector
+    _connections.erase(_connections.begin() + index);
+    
+    // Switch to adjacent tab or offline
+    int newIndex = index - 1;
+    if (newIndex < 0 && !_connections.empty()) newIndex = 0;
+    
+    switchToConnection(newIndex);
 }
 
 INT_PTR CALLBACK FtpDockableDlg::run_dlgProc(UINT message, WPARAM wParam, LPARAM lParam)
@@ -141,11 +226,14 @@ INT_PTR CALLBACK FtpDockableDlg::run_dlgProc(UINT message, WPARAM wParam, LPARAM
             int height = HIWORD(lParam);
             
             HWND hTab = ::GetDlgItem(_hSelf, IDC_TAB_SERVERS);
-            HWND hTree = ::GetDlgItem(_hSelf, IDC_TREE_FILES);
+            HWND hDefaultTree = ::GetDlgItem(_hSelf, IDC_TREE_FILES);
             HWND hLog = ::GetDlgItem(_hSelf, IDC_EDIT_LOG);
             
-            ::MoveWindow(hTab, 2, 20, width - 4, 14, TRUE);
-            ::MoveWindow(hTree, 2, 36, width - 4, height - 36 - 60, TRUE);
+            ::MoveWindow(hTab, 2, 22, width - 4, 24, TRUE);
+            ::MoveWindow(hDefaultTree, 2, 48, width - 4, height - 48 - 60, TRUE);
+            for (auto& conn : _connections) {
+                ::MoveWindow(conn.hTree, 2, 48, width - 4, height - 48 - 60, TRUE);
+            }
             ::MoveWindow(hLog, 2, height - 58, width - 4, 56, TRUE);
             return TRUE;
         }
@@ -153,16 +241,34 @@ INT_PTR CALLBACK FtpDockableDlg::run_dlgProc(UINT message, WPARAM wParam, LPARAM
         case WM_NOTIFY:
         {
             LPNMHDR lpnmh = (LPNMHDR)lParam;
-            if (lpnmh->idFrom == IDC_TREE_FILES) {
+            
+            // Obsługa przełączania zakładek
+            if (lpnmh->idFrom == IDC_TAB_SERVERS && lpnmh->code == TCN_SELCHANGE) {
+                int index = TabCtrl_GetCurSel(lpnmh->hwndFrom);
+                switchToConnection(index);
+                return TRUE;
+            }
+            
+            // Sprawdzanie czy powiadomienie pochodzi z jednego z naszych drzew plików
+            bool isOurTree = false;
+            int treeIndex = -1;
+            for (int i = 0; i < (int)_connections.size(); ++i) {
+                if (lpnmh->hwndFrom == _connections[i].hTree) {
+                    isOurTree = true;
+                    treeIndex = i;
+                    break;
+                }
+            }
+            
+            if (isOurTree) {
                 if (lpnmh->code == TVN_ITEMEXPANDINGW || lpnmh->code == TVN_ITEMEXPANDINGA) {
                     LPNMTREEVIEW pnmtv = (LPNMTREEVIEW)lParam;
                     if (pnmtv->action == TVE_EXPAND) {
-                        // Sprawdzamy czy wezel juz ma wczytane dzieci
                         if (TreeView_GetChild(lpnmh->hwndFrom, pnmtv->itemNew.hItem) == NULL) {
                             std::string* pPath = (std::string*)pnmtv->itemNew.lParam;
                             if (pPath && !pPath->empty()) {
                                 std::vector<RemoteFileInfo> subfiles;
-                                if (_ftpClient.listDirectory(*pPath, subfiles)) {
+                                if (_connections[treeIndex].client->listDirectory(*pPath, subfiles)) {
                                     TVINSERTSTRUCTW tvs = {0};
                                     tvs.hParent = pnmtv->itemNew.hItem;
                                     tvs.hInsertAfter = TVI_LAST;
@@ -205,21 +311,18 @@ INT_PTR CALLBACK FtpDockableDlg::run_dlgProc(UINT message, WPARAM wParam, LPARAM
                         if (tvi.cChildren == 0 && tvi.lParam) { // file
                             std::string* pPath = (std::string*)tvi.lParam;
                             
-                            // Generate local path
                             wchar_t tempPath[MAX_PATH];
                             GetTempPathW(MAX_PATH, tempPath);
                             std::wstring localPath = std::wstring(tempPath) + L"PandaFTP_";
                             
-                            // Extract filename from pPath
                             size_t pos = pPath->find_last_of('/');
                             std::string filename = (pos == std::string::npos) ? *pPath : pPath->substr(pos + 1);
                             localPath += s2ws_dock(filename);
                             
                             logMessage(L"Pobieranie: " + s2ws_dock(filename) + L"...");
                             
-                            // Download
-                            if (_ftpClient.downloadFile(*pPath, ws2s_dock(localPath))) {
-                                EventManager::getInstance().registerDownloadedFile(localPath, _currentProfileId, *pPath);
+                            if (_connections[treeIndex].client->downloadFile(*pPath, ws2s_dock(localPath))) {
+                                EventManager::getInstance().registerDownloadedFile(localPath, _connections[treeIndex].profileId, *pPath);
                                 EventManager::getInstance().openLocalFileInEditor(localPath);
                                 logMessage(L"Pobrano plik pomyślnie.");
                             } else {
@@ -240,13 +343,14 @@ INT_PTR CALLBACK FtpDockableDlg::run_dlgProc(UINT message, WPARAM wParam, LPARAM
                 return TRUE;
             }
             else if (wmId == IDC_BTN_DISCONNECT) {
-                _ftpClient.disconnect();
-                TreeView_DeleteAllItems(::GetDlgItem(_hSelf, IDC_TREE_FILES));
-                logMessage(L"Rozłączono.");
+                if (_activeConnectionIndex >= 0) {
+                    closeConnection(_activeConnectionIndex);
+                    logMessage(L"Rozłączono.");
+                }
                 return TRUE;
             }
             else if (wmId == IDC_BTN_UPLOAD) {
-                if (_currentProfileId.empty()) {
+                if (_activeConnectionIndex < 0) {
                     logMessage(L"Brak aktywnego połączenia!");
                     return TRUE;
                 }
@@ -260,8 +364,8 @@ INT_PTR CALLBACK FtpDockableDlg::run_dlgProc(UINT message, WPARAM wParam, LPARAM
                     return TRUE;
                 }
                 
-                // Find selected folder in TreeView to upload to
-                HWND hTree = ::GetDlgItem(_hSelf, IDC_TREE_FILES);
+                // Find selected folder in active TreeView to upload to
+                HWND hTree = _connections[_activeConnectionIndex].hTree;
                 HTREEITEM hSel = TreeView_GetSelection(hTree);
                 std::string targetDir = "/";
                 
@@ -297,20 +401,31 @@ INT_PTR CALLBACK FtpDockableDlg::run_dlgProc(UINT message, WPARAM wParam, LPARAM
                 
                 logMessage(L"Wysyłanie: " + wFileName + L"...");
                 
-                if (_ftpClient.uploadFile(localUtf8, remoteFullPath)) {
-                    EventManager::getInstance().registerDownloadedFile(wPath, _currentProfileId, remoteFullPath);
+                if (_connections[_activeConnectionIndex].client->uploadFile(localUtf8, remoteFullPath)) {
+                    EventManager::getInstance().registerDownloadedFile(wPath, _connections[_activeConnectionIndex].profileId, remoteFullPath);
                     logMessage(L"Plik wysłany pomyślnie.");
                     
                     // Odswiez wezel docelowy
                     if (hSel) {
                         if (TreeView_GetChild(hTree, hSel) != NULL) {
-                            // Jesli folder byl rozwiniety, najprosciej zwinac go i rozwinac (odswiezenie)
                             TreeView_Expand(hTree, hSel, TVE_COLLAPSE | TVE_COLLAPSERESET);
                             TreeView_Expand(hTree, hSel, TVE_EXPAND);
                         }
                     }
                 } else {
                     logMessage(L"Błąd wysyłania pliku!");
+                }
+                return TRUE;
+            }
+            else if (wmId == IDC_BTN_REFRESH) {
+                if (_activeConnectionIndex >= 0) {
+                    HWND hTree = _connections[_activeConnectionIndex].hTree;
+                    HTREEITEM hSel = TreeView_GetSelection(hTree);
+                    if (hSel) {
+                        TreeView_Expand(hTree, hSel, TVE_COLLAPSE | TVE_COLLAPSERESET);
+                        TreeView_Expand(hTree, hSel, TVE_EXPAND);
+                        logMessage(L"Odświeżono katalog.");
+                    }
                 }
                 return TRUE;
             }
