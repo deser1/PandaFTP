@@ -33,6 +33,7 @@ x86/
 curl/
 
 # vcpkg
+vcpkg/
 vcpkg_installed/
 vcpkg-export-*/
 .vcpkg-root
