@@ -44,6 +44,21 @@ INT_PTR CALLBACK ServerManagerDlg::run_dlgProc(UINT message, WPARAM wParam, LPAR
             int wmId = LOWORD(wParam);
             int wmEvent = HIWORD(wParam);
 
+            // Gdy wpisujemy cokolwiek w polach edycyjnych formularza
+            if ((wmEvent == EN_CHANGE) && 
+                (wmId == IDC_EDIT_PROFILENAME || wmId == IDC_EDIT_HOST || 
+                 wmId == IDC_EDIT_USER || wmId == IDC_EDIT_PASS || 
+                 wmId == IDC_EDIT_REMOTEDIR || wmId == IDC_EDIT_PORT)) {
+                
+                // Jeśli nie mamy wybranego żadnego elementu na liście (co oznacza tworzenie nowego profilu)
+                HWND hList = ::GetDlgItem(_hSelf, IDC_LIST_PROFILES);
+                int index = (int)::SendMessage(hList, LB_GETCURSEL, 0, 0);
+                if (index == LB_ERR) {
+                    // Wymuszamy, by ID było puste
+                    currentProfileId = "";
+                }
+            }
+
             if (wmId == IDC_BTN_CLOSE || wmId == IDCANCEL) {
                 display(false);
                 return TRUE;
@@ -155,7 +170,8 @@ bool ServerManagerDlg::saveCurrentProfile() {
     p.name = ws2s(buf);
     
     if (currentProfileId.empty()) {
-        currentProfileId = std::to_string(GetTickCount64()); // Simple unique ID
+        // Wygeneruj NOWE unikalne ID, dodając trochę losowości
+        currentProfileId = std::to_string(GetTickCount64()) + "_" + std::to_string(rand());
     }
     p.id = currentProfileId;
     
