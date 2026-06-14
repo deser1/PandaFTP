@@ -23,6 +23,13 @@ static std::string ws2s(const std::wstring& wstr) {
     return strTo;
 }
 
+static std::string trim(const std::string& str) {
+    size_t first = str.find_first_not_of(" \t\r\n");
+    if (std::string::npos == first) return str;
+    size_t last = str.find_last_not_of(" \t\r\n");
+    return str.substr(first, (last - first + 1));
+}
+
 INT_PTR CALLBACK ServerManagerDlg::run_dlgProc(UINT message, WPARAM wParam, LPARAM /*lParam*/)
 {
     switch (message)
@@ -180,16 +187,16 @@ bool ServerManagerDlg::saveCurrentProfile() {
     }
     p.id = currentProfileId;
     
-    ::GetDlgItemTextW(_hSelf, IDC_EDIT_HOST, buf, 256); p.host = ws2s(buf);
+    ::GetDlgItemTextW(_hSelf, IDC_EDIT_HOST, buf, 256); p.host = trim(ws2s(buf));
     p.port = ::GetDlgItemInt(_hSelf, IDC_EDIT_PORT, NULL, FALSE);
     
     HWND hCombo = ::GetDlgItem(_hSelf, IDC_COMBO_PROTOCOL);
     int idx = (int)::SendMessage(hCombo, CB_GETCURSEL, 0, 0);
     p.protocol = (idx == 1) ? "SFTP" : "FTP";
     
-    ::GetDlgItemTextW(_hSelf, IDC_EDIT_USER, buf, 256); p.username = ws2s(buf);
-    ::GetDlgItemTextW(_hSelf, IDC_EDIT_PASS, buf, 256); p.password = ws2s(buf);
-    ::GetDlgItemTextW(_hSelf, IDC_EDIT_REMOTEDIR, buf, 256); p.remoteDir = ws2s(buf);
+    ::GetDlgItemTextW(_hSelf, IDC_EDIT_USER, buf, 256); p.username = trim(ws2s(buf));
+    ::GetDlgItemTextW(_hSelf, IDC_EDIT_PASS, buf, 256); p.password = trim(ws2s(buf));
+    ::GetDlgItemTextW(_hSelf, IDC_EDIT_REMOTEDIR, buf, 256); p.remoteDir = trim(ws2s(buf));
     
     ConfigManager::getInstance().addProfile(p);
     

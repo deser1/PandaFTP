@@ -1,6 +1,42 @@
 #include "FtpClient.h"
 #include <iostream>
 #include <sstream>
+#include <iomanip>
+
+static std::string urlEncode(CURL* curl, const std::string& str) {
+    if (str.empty()) return "";
+    
+    // We only want to encode characters that are invalid in URLs, 
+    // but KEEP the forward slashes '/' as they are path separators.
+    std::string result = "";
+    std::string current_segment = "";
+    
+    for (char c : str) {
+        if (c == '/') {
+            if (!current_segment.empty()) {
+                char* escaped = curl_easy_escape(curl, current_segment.c_str(), (int)current_segment.length());
+                if (escaped) {
+                    result += escaped;
+                    curl_free(escaped);
+                }
+                current_segment = "";
+            }
+            result += "/";
+        } else {
+            current_segment += c;
+        }
+    }
+    
+    if (!current_segment.empty()) {
+        char* escaped = curl_easy_escape(curl, current_segment.c_str(), (int)current_segment.length());
+        if (escaped) {
+            result += escaped;
+            curl_free(escaped);
+        }
+    }
+    
+    return result;
+}
 
 static size_t WriteMemoryCallback(void* contents, size_t size, size_t nmemb, void* userp) {
     size_t realsize = size * nmemb;
@@ -94,7 +130,8 @@ bool FtpClient::listDirectory(const std::string& path, std::vector<RemoteFileInf
     
     std::string url = baseUrl;
     if (!path.empty() && path != "/") {
-        url += (path.front() == '/' ? path : "/" + path);
+        std::string safePath = urlEncode(curl, path);
+        url += (safePath.front() == '/' ? safePath : "/" + safePath);
     }
     if (url.back() != '/') url += '/';
     
@@ -146,7 +183,8 @@ bool FtpClient::downloadFile(const std::string& remotePath, const std::string& l
     
     std::string url = baseUrl;
     if (!remotePath.empty()) {
-        url += (remotePath.front() == '/' ? remotePath : "/" + remotePath);
+        std::string safePath = urlEncode(curl, remotePath);
+        url += (safePath.front() == '/' ? safePath : "/" + safePath);
     }
     curl_easy_setopt(curl, CURLOPT_URL, url.c_str());
     curl_easy_setopt(curl, CURLOPT_DIRLISTONLY, 0L);
@@ -182,7 +220,8 @@ bool FtpClient::uploadFile(const std::string& localPath, const std::string& remo
     
     std::string url = baseUrl;
     if (!remotePath.empty()) {
-        url += (remotePath.front() == '/' ? remotePath : "/" + remotePath);
+        std::string safePath = urlEncode(curl, remotePath);
+        url += (safePath.front() == '/' ? safePath : "/" + safePath);
     }
     curl_easy_setopt(curl, CURLOPT_URL, url.c_str());
     curl_easy_setopt(curl, CURLOPT_UPLOAD, 1L);
