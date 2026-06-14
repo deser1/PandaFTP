@@ -18,6 +18,9 @@
 #include "PluginDefinition.h"
 #include "menuCmdID.h"
 #include "DockingFeature/FtpDockableDlg.h"
+#include <algorithm>
+#include <string>
+#include <stdio.h>
 
 //
 // The plugin data that Notepad++ needs
@@ -141,14 +144,84 @@ void checkForUpdates()
 
 void showAbout()
 {
+    wchar_t langPath[MAX_PATH] = {0};
+    ::SendMessage(nppData._nppHandle, NPPM_GETNATIVELANGFILENAME, MAX_PATH, (LPARAM)langPath);
+    
     std::wstring aboutText = 
         L"PandaFTP v1.0.0\n\n"
         L"Wtyczka dla Notepad++ do obsługi serwerów FTP i SFTP.\n"
         L"Autor: Domek Software\n\n"
-        L"Dzięki PandaFTP możesz łatwo zarządzać swoimi plikami "
-        L"na serwerach zdalnych, edytować je na żywo i automatycznie "
-        L"synchronizować.\n\n"
+        L"Ścieżka języka N++: " + std::wstring(langPath) + L"\n\n"
         L"Więcej informacji znajdziesz na GitHubie.";
         
     ::MessageBoxW(nppData._nppHandle, aboutText.c_str(), L"O wtyczce PandaFTP", MB_OK | MB_ICONINFORMATION);
+}
+
+bool isNotepadLanguagePolish()
+{
+    // Method 1: Check the Notepad++ main menu text (100% reliable for current UI language)
+    HMENU hMenu = ::GetMenu(nppData._nppHandle);
+    if (hMenu) {
+        wchar_t menuText[256] = {0};
+        
+        // First menu item: "File" -> "Plik"
+        ::GetMenuStringW(hMenu, 0, menuText, 255, MF_BYPOSITION);
+        std::wstring wMenu0(menuText);
+        std::transform(wMenu0.begin(), wMenu0.end(), wMenu0.begin(), [](wchar_t c) { return (wchar_t)::towlower(c); });
+        
+        // Second menu item: "Edit" -> "Edycja"
+        ::GetMenuStringW(hMenu, 1, menuText, 255, MF_BYPOSITION);
+        std::wstring wMenu1(menuText);
+        std::transform(wMenu1.begin(), wMenu1.end(), wMenu1.begin(), [](wchar_t c) { return (wchar_t)::towlower(c); });
+        
+        if (wMenu0.find(L"plik") != std::wstring::npos || wMenu1.find(L"edycja") != std::wstring::npos) {
+            return true;
+        }
+        
+        // If we successfully read the menu and it's NOT Polish, return false immediately
+        if (!wMenu0.empty() || !wMenu1.empty()) {
+            return false;
+        }
+    }
+
+    // Method 2: Fallback to checking the localization file
+    wchar_t langPath[MAX_PATH] = {0};
+    ::SendMessage(nppData._nppHandle, NPPM_GETNATIVELANGFILENAME, MAX_PATH, (LPARAM)langPath);
+    std::wstring wLangPath(langPath);
+    
+    // Fallback: If empty, assume Polish as default for this plugin
+    if (wLangPath.empty()) {
+        return true;
+    }
+    
+    std::wstring wLangLower = wLangPath;
+    std::transform(wLangLower.begin(), wLangLower.end(), wLangLower.begin(), [](wchar_t c) { return (wchar_t)::towlower(c); });
+    
+    if (wLangLower.find(L"polish") != std::wstring::npos || wLangLower.find(L"polski") != std::wstring::npos) {
+        return true;
+    }
+    
+    // If it's a generic nativeLang.xml, read the file to find out
+    if (wLangLower.find(L"nativelang.xml") != std::wstring::npos) {
+        FILE* f = nullptr;
+        _wfopen_s(&f, langPath, L"r");
+        if (f) {
+            char buf[1024] = {0};
+            fread(buf, 1, 1023, f);
+            fclose(f);
+            std::string content(buf);
+            std::transform(content.begin(), content.end(), content.begin(), [](char c) { return (char)::tolower((unsigned char)c); });
+            if (content.find("polish") != std::string::npos || content.find("polski") != std::string::npos) {
+                return true;
+            }
+        }
+    }
+    
+    // Check Windows locale as a last resort
+    LANGID langid = GetUserDefaultUILanguage();
+    if (PRIMARYLANGID(langid) == LANG_POLISH) {
+        return true;
+    }
+    
+    return false;
 }

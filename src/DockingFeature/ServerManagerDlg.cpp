@@ -43,10 +43,7 @@ INT_PTR CALLBACK ServerManagerDlg::run_dlgProc(UINT message, WPARAM wParam, LPAR
             ::SendMessage(hCombo, CB_SETCURSEL, 0, 0);
 
             // Tłumaczenie UI na język angielski, jeśli używamy innej wersji N++
-            wchar_t langPath[MAX_PATH];
-            ::SendMessage(nppData._nppHandle, NPPM_GETNATIVELANGFILENAME, MAX_PATH, (LPARAM)langPath);
-            std::wstring wLangPath(langPath);
-            if (wLangPath.find(L"polish.xml") == std::wstring::npos && wLangPath.find(L"polski") == std::wstring::npos) {
+            if (!isNotepadLanguagePolish()) {
                 ::SetWindowTextW(_hSelf, L"Server Manager");
                 ::SetDlgItemTextW(_hSelf, IDC_BTN_NEW_PROFILE, L"New");
                 ::SetDlgItemTextW(_hSelf, IDC_BTN_DEL_PROFILE, L"Delete");

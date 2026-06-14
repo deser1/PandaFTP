@@ -75,4 +75,9 @@ void showServerManager();
 void checkForUpdates();
 void showAbout();
 
+//
+// Helper function to detect Polish language
+//
+bool isNotepadLanguagePolish();
+
 #endif //PLUGINDEFINITION_H

@@ -216,12 +216,7 @@ INT_PTR CALLBACK FtpDockableDlg::run_dlgProc(UINT message, WPARAM wParam, LPARAM
             TabCtrl_InsertItem(hTab, 0, &tie);
             
             // Check language and update UI if not Polish
-            wchar_t langPath[MAX_PATH];
-            ::SendMessage(nppData._nppHandle, NPPM_GETNATIVELANGFILENAME, MAX_PATH, (LPARAM)langPath);
-            std::wstring wLangPath(langPath);
-            
-            // Very simple language check - if it doesn't contain 'polish', we use English
-            if (wLangPath.find(L"polish.xml") == std::wstring::npos && wLangPath.find(L"polski") == std::wstring::npos) {
+            if (!isNotepadLanguagePolish()) {
                 ::SetDlgItemTextW(_hSelf, IDC_BTN_MGR, L"Manager");
                 ::SetDlgItemTextW(_hSelf, IDC_BTN_UPLOAD, L"Upload");
                 ::SetDlgItemTextW(_hSelf, IDC_BTN_DISCONNECT, L"Disconnect");
