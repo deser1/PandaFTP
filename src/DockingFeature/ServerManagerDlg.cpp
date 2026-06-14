@@ -93,9 +93,12 @@ INT_PTR CALLBACK ServerManagerDlg::run_dlgProc(UINT message, WPARAM wParam, LPAR
                     int count = (int)::SendMessage(hList, LB_GETCOUNT, 0, 0);
                     auto& profiles = ConfigManager::getInstance().getProfiles();
                     for (int i = 0; i < count; ++i) {
-                        if (i < (int)profiles.size() && profiles[i].id == currentProfileId) {
-                            ::SendMessage(hList, LB_SETCURSEL, i, 0);
-                            break;
+                        int profileIndex = (int)::SendMessage(hList, LB_GETITEMDATA, i, 0);
+                        if (profileIndex >= 0 && profileIndex < (int)profiles.size()) {
+                            if (profiles[profileIndex].id == currentProfileId) {
+                                ::SendMessage(hList, LB_SETCURSEL, i, 0);
+                                break;
+                            }
                         }
                     }
                 }
@@ -109,11 +112,12 @@ INT_PTR CALLBACK ServerManagerDlg::run_dlgProc(UINT message, WPARAM wParam, LPAR
             }
             else if (wmId == IDC_LIST_PROFILES && wmEvent == LBN_SELCHANGE) {
                 HWND hList = ::GetDlgItem(_hSelf, IDC_LIST_PROFILES);
-                int index = (int)::SendMessage(hList, LB_GETCURSEL, 0, 0);
-                if (index != LB_ERR) {
+                int listIndex = (int)::SendMessage(hList, LB_GETCURSEL, 0, 0);
+                if (listIndex != LB_ERR) {
+                    int profileIndex = (int)::SendMessage(hList, LB_GETITEMDATA, listIndex, 0);
                     auto& profiles = ConfigManager::getInstance().getProfiles();
-                    if (index >= 0 && index < static_cast<int>(profiles.size())) {
-                        loadProfileData(profiles[index].id);
+                    if (profileIndex >= 0 && profileIndex < static_cast<int>(profiles.size())) {
+                        loadProfileData(profiles[profileIndex].id);
                     }
                 }
             }
@@ -130,9 +134,10 @@ void ServerManagerDlg::refreshProfileList() {
     ::SendMessage(hList, LB_RESETCONTENT, 0, 0);
     
     auto& profiles = ConfigManager::getInstance().getProfiles();
-    for (const auto& p : profiles) {
-        std::wstring wname = s2ws(p.name);
-        ::SendMessage(hList, LB_ADDSTRING, 0, (LPARAM)wname.c_str());
+    for (size_t i = 0; i < profiles.size(); ++i) {
+        std::wstring wname = s2ws(profiles[i].name);
+        int listIndex = (int)::SendMessage(hList, LB_ADDSTRING, 0, (LPARAM)wname.c_str());
+        ::SendMessage(hList, LB_SETITEMDATA, listIndex, (LPARAM)i);
     }
 }
 
