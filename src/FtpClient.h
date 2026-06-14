@@ -31,6 +31,8 @@ public:
         logCallback = callback;
     }
 
+    const std::string& getCurrentPassword() const { return currentPassword; }
+
 private:
     CURL* curl;
     std::string baseUrl;

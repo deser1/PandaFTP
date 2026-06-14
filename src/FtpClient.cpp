@@ -52,7 +52,21 @@ static int DebugCallback(CURL* /*handle*/, curl_infotype type, char* data, size_
         if (!text.empty() && text.back() == '\n') text.pop_back();
         if (!text.empty() && text.back() == '\r') text.pop_back();
         if (!text.empty()) {
-            client->log("[CURL] " + text);
+            // Mask FTP password for security
+            if (text.find("PASS ") == 0 || text.find("pass ") == 0) {
+                client->log("[CURL] PASS ****");
+            } else {
+                // Dodatkowe zabezpieczenie: jeśli hasło pojawi się w jakimkolwiek innym logu, zamień je
+                const std::string& pwd = client->getCurrentPassword();
+                if (!pwd.empty()) {
+                    size_t pos = 0;
+                    while ((pos = text.find(pwd, pos)) != std::string::npos) {
+                        text.replace(pos, pwd.length(), "****");
+                        pos += 4;
+                    }
+                }
+                client->log("[CURL] " + text);
+            }
         }
     }
     return 0;
