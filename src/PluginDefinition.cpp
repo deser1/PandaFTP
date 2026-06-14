@@ -144,14 +144,13 @@ void checkForUpdates()
 
 void showAbout()
 {
-    wchar_t langPath[MAX_PATH] = {0};
-    ::SendMessage(nppData._nppHandle, NPPM_GETNATIVELANGFILENAME, MAX_PATH, (LPARAM)langPath);
-    
     std::wstring aboutText = 
         L"PandaFTP v1.0.0\n\n"
         L"Wtyczka dla Notepad++ do obsługi serwerów FTP i SFTP.\n"
         L"Autor: Domek Software\n\n"
-        L"Ścieżka języka N++: " + std::wstring(langPath) + L"\n\n"
+        L"Dzięki PandaFTP możesz łatwo zarządzać swoimi plikami "
+        L"na serwerach zdalnych, edytować je na żywo i automatycznie "
+        L"synchronizować.\n\n"
         L"Więcej informacji znajdziesz na GitHubie.";
         
     ::MessageBoxW(nppData._nppHandle, aboutText.c_str(), L"O wtyczce PandaFTP", MB_OK | MB_ICONINFORMATION);
