@@ -123,6 +123,11 @@ void FtpDockableDlg::connectToServer(const std::string& profileId) {
                 int newIndex = (int)_connections.size();
                 TabCtrl_InsertItem(hTab, newIndex, &tie);
                 
+                // Trigger a resize event to recalculate tab row heights
+                RECT rcClient;
+                ::GetClientRect(_hSelf, &rcClient);
+                ::SendMessage(_hSelf, WM_SIZE, 0, MAKELPARAM(rcClient.right, rcClient.bottom));
+                
                 // Store connection
                 ServerConnection conn;
                 conn.profileId = p.id;
@@ -188,6 +193,11 @@ void FtpDockableDlg::closeConnection(int index) {
     // Remove from vector
     _connections.erase(_connections.begin() + index);
     
+    // Trigger resize to recalculate tabs height in case a row was removed
+    RECT rcClient;
+    ::GetClientRect(_hSelf, &rcClient);
+    ::SendMessage(_hSelf, WM_SIZE, 0, MAKELPARAM(rcClient.right, rcClient.bottom));
+    
     // Switch to adjacent tab or offline
     int newIndex = index - 1;
     if (newIndex < 0 && !_connections.empty()) newIndex = 0;
@@ -210,6 +220,11 @@ INT_PTR CALLBACK FtpDockableDlg::run_dlgProc(UINT message, WPARAM wParam, LPARAM
 
             // Initialize Tabs
             HWND hTab = ::GetDlgItem(_hSelf, IDC_TAB_SERVERS);
+            
+            // Add multiline style on creation
+            LONG style = ::GetWindowLong(hTab, GWL_STYLE);
+            ::SetWindowLong(hTab, GWL_STYLE, style | TCS_MULTILINE);
+            
             TCITEMW tie;
             tie.mask = TCIF_TEXT;
             tie.pszText = (LPWSTR)L"Offline";
@@ -238,12 +253,23 @@ INT_PTR CALLBACK FtpDockableDlg::run_dlgProc(UINT message, WPARAM wParam, LPARAM
             HWND hLog = ::GetDlgItem(_hSelf, IDC_EDIT_LOG);
             
             // Move tabs lower (y=32) so they don't overlap buttons (y=2, h=14 DLUs ~21-24px)
-            ::MoveWindow(hTab, 2, 32, width - 4, 24, TRUE);
+            // Use multi-line tab style instead of scrolling
+            LONG style = ::GetWindowLong(hTab, GWL_STYLE);
+            ::SetWindowLong(hTab, GWL_STYLE, style | TCS_MULTILINE);
             
-            // Move tree lower (y=58)
-            ::MoveWindow(hDefaultTree, 2, 58, width - 4, height - 58 - 60, TRUE);
+            // Adjust heights to accommodate potentially multiple rows of tabs
+            RECT tabRect;
+            ::GetWindowRect(hTab, &tabRect);
+            int tabHeight = tabRect.bottom - tabRect.top;
+            if (tabHeight < 24) tabHeight = 24;
+            
+            ::MoveWindow(hTab, 2, 32, width - 4, tabHeight, TRUE);
+            
+            // Move tree lower, adjusting for tab height
+            int treeY = 32 + tabHeight;
+            ::MoveWindow(hDefaultTree, 2, treeY, width - 4, height - treeY - 60, TRUE);
             for (auto& conn : _connections) {
-                ::MoveWindow(conn.hTree, 2, 58, width - 4, height - 58 - 60, TRUE);
+                ::MoveWindow(conn.hTree, 2, treeY, width - 4, height - treeY - 60, TRUE);
             }
             ::MoveWindow(hLog, 2, height - 58, width - 4, 56, TRUE);
             return TRUE;
