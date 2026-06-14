@@ -42,6 +42,22 @@ INT_PTR CALLBACK ServerManagerDlg::run_dlgProc(UINT message, WPARAM wParam, LPAR
             ::SendMessage(hCombo, CB_ADDSTRING, 0, (LPARAM)L"SFTP");
             ::SendMessage(hCombo, CB_SETCURSEL, 0, 0);
 
+            // Tłumaczenie UI na język angielski, jeśli używamy innej wersji N++
+            wchar_t langPath[MAX_PATH];
+            ::SendMessage(nppData._nppHandle, NPPM_GETNATIVELANGFILENAME, MAX_PATH, (LPARAM)langPath);
+            std::wstring wLangPath(langPath);
+            if (wLangPath.find(L"polish.xml") == std::wstring::npos && wLangPath.find(L"polski") == std::wstring::npos) {
+                ::SetWindowTextW(_hSelf, L"Server Manager");
+                ::SetDlgItemTextW(_hSelf, IDC_BTN_NEW_PROFILE, L"New");
+                ::SetDlgItemTextW(_hSelf, IDC_BTN_DEL_PROFILE, L"Delete");
+                ::SetDlgItemTextW(_hSelf, IDC_BTN_CONNECT, L"Connect");
+                ::SetDlgItemTextW(_hSelf, IDC_BTN_SAVE, L"Save");
+                ::SetDlgItemTextW(_hSelf, IDC_BTN_CLOSE, L"Cancel");
+                
+                // Trzeba by było również przetłumaczyć Static texty, ale to wymagałoby ich własnych IDC_ zamiast IDC_STATIC
+                // Ze względu na uproszczenie, zmieniamy tylko przyciski i tytuł
+            }
+
             refreshProfileList();
             return TRUE;
         }

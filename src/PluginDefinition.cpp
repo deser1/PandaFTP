@@ -66,6 +66,8 @@ void commandMenuInit()
     //            );
     setCommand(0, TEXT("Panel FTP/SFTP"), showFtpPanel, NULL, false);
     setCommand(1, TEXT("Menedżer Serwerów"), showServerManager, NULL, false);
+    setCommand(2, TEXT("Sprawdź aktualizacje..."), checkForUpdates, NULL, false);
+    setCommand(3, TEXT("O wtyczce PandaFTP"), showAbout, NULL, false);
 }
 
 //
@@ -130,4 +132,23 @@ void showFtpPanel()
 void showServerManager()
 {
     ftpDockDlg.displayServerManager();
+}
+
+void checkForUpdates()
+{
+    ::ShellExecuteW(NULL, L"open", L"https://github.com/deser1/PandaFTP/releases", NULL, NULL, SW_SHOWNORMAL);
+}
+
+void showAbout()
+{
+    std::wstring aboutText = 
+        L"PandaFTP v1.0.0\n\n"
+        L"Wtyczka dla Notepad++ do obsługi serwerów FTP i SFTP.\n"
+        L"Autor: Domek Software\n\n"
+        L"Dzięki PandaFTP możesz łatwo zarządzać swoimi plikami "
+        L"na serwerach zdalnych, edytować je na żywo i automatycznie "
+        L"synchronizować.\n\n"
+        L"Więcej informacji znajdziesz na GitHubie.";
+        
+    ::MessageBoxW(nppData._nppHandle, aboutText.c_str(), L"O wtyczce PandaFTP", MB_OK | MB_ICONINFORMATION);
 }
